@@ -81,7 +81,7 @@
                                     </div>
                                     </a>
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                        <img width="42" class="rounded-circle" src="assets/images/avatar1.jpg" alt="">
+                                    <img width="42" class="rounded-circle" src="{{ asset('assets/images/avatar1.jpg') }}" alt="ProfilePic">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">

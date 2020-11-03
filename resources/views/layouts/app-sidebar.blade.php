@@ -35,7 +35,7 @@
                 <li class="app-sidebar__heading">Inventario</li>
                 <li class="mm-active">
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
+                        <i class="metismenu-icon pe-7s-shopbag"></i>
                         Productos
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>

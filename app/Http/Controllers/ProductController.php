@@ -54,7 +54,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('product.show', ['product' => $product]);
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit', ['product' => $product]);
     }
 
     /**
@@ -77,7 +77,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->cost = $request->cost;
+        $product->stock = $request->stock;
+
+        $product->save();
+
+        return $this->index();
     }
 
     /**
@@ -88,6 +96,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return $this->index();
     }
 }
