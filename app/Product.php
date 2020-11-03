@@ -16,4 +16,8 @@ class Product extends Model
         'name', 'description', 'price', 'cost', 'stock',
     ];
 
+    public function sales(){
+        return $this->belongsToMany('App\Sale');
+    }
+
 }
