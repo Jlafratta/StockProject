@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('product.list', ['products' => Product::all()]);
     }
 
     /**
@@ -35,7 +35,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create([
+            'name' => $request->name,
+            'description' =>$request->description,
+            'price' => $request->price,
+            'cost' => $request->cost,
+            'stock' => $request->stock
+        ]);
+
+        return redirect()->route('admin.product.index', ['products' => Product::all()]);
     }
 
     /**

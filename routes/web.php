@@ -21,4 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/product', 'ProductController@create')->name('product.create');
+Route::prefix('dashboard')->name('admin.')->group(function(){
+
+    Route::resource('/product', 'ProductController');
+
+});
+

@@ -41,15 +41,15 @@
                     </a>
                     <ul class="mm-show">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.product.create') }}">
                                 <i class="metismenu-icon">
-                                </i>Stock
+                                </i>Nuevo
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('product.create') }}">
+                            <a href="{{ route('admin.product.index') }}">
                                 <i class="metismenu-icon">
-                                </i>Nuevo
+                                </i>Stock
                             </a>
                         </li>
                     </ul>

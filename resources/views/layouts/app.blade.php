@@ -23,8 +23,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -38,13 +39,8 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
 
-                    @include('layouts.app-page-title')
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            @yield('app-content')
-                        </div>
-                    </div>
+                    @yield('app-content')
+                        
                 </div>
                 <!-- @include('layouts.app-footer') -->
             </div>
