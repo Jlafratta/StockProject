@@ -67,35 +67,40 @@
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left">
                             <div class="btn-group">
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="widget-content-left mr-3 header-user-info">
-                                    <div class="widget-heading">
-                                    {{ Auth::user()->name }}
-                                    </div>
-                                    <div class="widget-subheading">
-                                        Administrador
-                                    </div>
-                                </div>
-                                </a>
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="assets/images/avatar1.jpg" alt="">
-                                    <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                                </a>
-                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    
-                                    <h6 tabindex="-1" class="dropdown-header">Cuenta</h6>
-                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Salir') }}
-                                    </a>
+                                @guest
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    
-                                </div>
+                                @else
+                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="widget-content-left mr-3 header-user-info">
+                                        <div class="widget-heading">
+                                        {{ Auth::user()->name }}
+                                        </div>
+                                        <div class="widget-subheading">
+                                            Administrador
+                                        </div>
+                                    </div>
+                                    </a>
+                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                        <img width="42" class="rounded-circle" src="assets/images/avatar1.jpg" alt="">
+                                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                    </a>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                        
+                                        <h6 tabindex="-1" class="dropdown-header">Cuenta</h6>
+                                        <div tabindex="-1" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                            {{ __('Salir') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                        
+                                    </div>
+                                @endguest
+                                
                             </div>
                         </div>
                     </div>

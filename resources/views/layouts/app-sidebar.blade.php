@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('product.create') }}">
                                 <i class="metismenu-icon">
                                 </i>Nuevo
                             </a>
