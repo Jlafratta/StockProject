@@ -27,31 +27,24 @@
                             @csrf
                             <div class="position-relative form-group container mb-4">
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label for="name">Productos</label>
+                                    <div class="col-md-7 form-group">
+                                        <label for="name">Producto</label>
                                             <select name="products[]" id="product" class="form-control" name="product">
                                                 @foreach ($products as $product)
-                                                    <option value="{{$product->id}}">{{ $product->name }}</option>
+                                                    <option value="{{$product->id}}">{{ $product->name ." (". $product->stock .")"}}</option>
                                                 @endforeach
                                             </select>
                                     </div>
-                                    <div class="col form-group">
-                                        <label for="price">Precio <span class="text-success"><strong> $ </strong></span></label>
-                                        <input type="number" name="price" id="price" value="0.0" class="form-control" required>
-                                    </div>
-                                    <div class="col form-group">
-                                        <label for="cost">Costo <span class="text-danger"><strong> $ </strong></span></label>
-                                        <input type="number" name="cost" id="cost" value="0.0" class="form-control" required>
+                                    <div class="col-md-3 form-group">
+                                        <label for="price">Cantidad <span><strong> u. </strong></span></label>
+                                        <input type="number" name="price" id="price" value="1" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-8 form-group">
-                                        <label for="desc">Descripcion</label>
-                                        <input type="text" name="description" id="desc" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="stock">Stock</label>
-                                        <input type="text" name="stock" id="stock" value="0" class="form-control" required>
+                                    
+                                    <div class="col-md-5 form-group">
+                                        <label for="stock">Fecha</label>
+                                        <input type="date" name="stock" id="stock" value="0" class="form-control" required>
                                     </div>
                                 </div>
                             </div>

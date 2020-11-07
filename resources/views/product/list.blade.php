@@ -27,7 +27,7 @@
                         <table class="mb-0 table table-responsive-lg table-hover">
                             <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Código</th>
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Costo</th>
@@ -38,7 +38,7 @@
                             <tbody>
                                 @foreach ($products as $product)
                             <tr>
-                                <th scope="row">{{ $product->id }}</th>
+                                <th scope="row">{{ $product->code }}</th>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->cost }}</td>

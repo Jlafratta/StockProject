@@ -36,6 +36,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         Product::create([
+            'code' => $request->code,
             'name' => $request->name,
             'description' =>$request->description,
             'price' => $request->price,

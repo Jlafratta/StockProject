@@ -16,8 +16,17 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->float('total');
             $table->dateTime('date')->nullable()->default(Carbon::now());
+            
+            $table->float('price');
+            $table->float('cost');
+            $table->integer('quantity');
+            $table->float('total_cost');
+            $table->float('total_price');
+            
+
+            $table->bigInteger('product_id')->unsigned()->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('set null');
 
             $table->timestamps();
         });
