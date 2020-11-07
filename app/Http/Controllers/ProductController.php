@@ -100,4 +100,16 @@ class ProductController extends Controller
         $product->delete();
         return $this->index();
     }
+
+    public function choose(Request $request)
+    {
+        if($request->check) {
+            // Buscar zona recomendada para el producto
+            $recomendation = "A";
+        }else {
+            $recomendation = false;
+        }
+
+        return view('product.choose', ['products' => Product::all(), 'recomendation' => $recomendation]);
+    }
 }

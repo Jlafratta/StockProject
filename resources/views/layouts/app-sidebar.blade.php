@@ -28,7 +28,8 @@
                 </span>
             </button>
         </span>
-    </div>    <div class="scrollbar-sidebar">
+    </div>    
+    <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
 
@@ -68,6 +69,14 @@
                     <a href="#">
                         <i class="metismenu-icon pe-7s-graph2">
                         </i>Informes
+                    </a>
+                </li>
+
+                <li class="app-sidebar__heading">Herramientas</li>
+                <li>
+                    <a href="{{ route('admin.product.choose') }}">
+                        <i class="metismenu-icon pe-7s-graph2">
+                        </i>Stock
                     </a>
                 </li>
                 

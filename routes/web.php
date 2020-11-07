@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('dashboard')->name('admin.')->group(function(){
 
     Route::resource('/product', 'ProductController');
+        Route::get('/stock', 'ProductController@choose')->name('product.choose');
     Route::resource('/sale', 'SaleController');
 
 });
