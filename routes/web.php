@@ -27,5 +27,8 @@ Route::prefix('dashboard')->name('admin.')->group(function(){
         Route::get('/stock', 'ProductController@choose')->name('product.choose');
     Route::resource('/sale', 'SaleController');
 
+    Route::get('/settings', 'SettingController@index')->name('settings');
+    Route::post('/settings', 'SettingController@store')->name('settings.store');
+
 });
 

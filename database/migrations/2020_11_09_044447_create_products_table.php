@@ -22,6 +22,9 @@ class CreateProductsTable extends Migration
             $table->float('cost');
             $table->integer('stock');
 
+            $table->bigInteger('provider_id')->unsigned()->nullable();
+            $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

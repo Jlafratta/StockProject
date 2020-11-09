@@ -72,6 +72,20 @@
                     </a>
                 </li>
 
+                <li class="app-sidebar__heading">Proveedores</li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-graph2">
+                        </i>Listado
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-graph2">
+                        </i>Nuevo
+                    </a>
+                </li>
+
                 <li class="app-sidebar__heading">Herramientas</li>
                 <li>
                     <a href="{{ route('admin.product.choose') }}">

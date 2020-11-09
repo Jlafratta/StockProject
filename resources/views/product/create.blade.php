@@ -37,6 +37,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-4 form-group">
+                                        <label for="code">Demanda diaria</label>
+                                        <input type="number" name="daily_demand" max="999999" id="code" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-12 form-group">
                                         <label for="desc">Descripcion</label>
                                         <textarea rows="4" type="text" name="description" id="desc" class="form-control"></textarea>

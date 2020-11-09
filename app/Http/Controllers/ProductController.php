@@ -110,6 +110,8 @@ class ProductController extends Controller
             $recomendation = false;
         }
 
+        // Calcular porcentaje que representa en el inventario el producto
+
         return view('product.choose', ['products' => Product::all(), 'recomendation' => $recomendation]);
     }
 }
