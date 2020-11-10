@@ -44,17 +44,27 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <label for="desc">Descripcion</label>
-                                        <input type="text" name="description" id="desc" value="{{ $product->description }}" class="form-control" required>
+                                        <textarea type="text" name="description" id="desc" class="form-control" required>{{ $product->description }}</textarea>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="stock">Stock</label>
-                                        <input type="text" name="stock" id="stock" value="{{ $product->stock }}" class="form-control" required>
+                                        <label for="">Stock</label> 
+                                    <div class="input-group">
+                                        <input type="text" name="stock" id="stock" value="{{ $product->stock }}" class="form-control" readonly>
+                                        <div class="input-group-append">
+                                            <a href=""><button class="btn btn-success"><strong> <i class="fa fa-plus"></i> </strong></button></a>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="container text-right mb-2">
-                            <button class="btn btn-primary btn-lg col-md-4"><strong> Guardar <i class="fa fa-download"></i></strong></button>
+                            <div class="container d-flex justify-content-between mb-2">
+                                <p><strong> Proveedor:</strong> @if($provider){{ $provider->name }} @else no encontrado @endif</p>
+                                    <a href="{{ route('admin.product.edit', $product) }}">
+                                        <button class="btn btn-primary btn-lg">
+                                            <strong> Editar <i class="fa fa-edit"></i></strong>
+                                        </button>
+                                    </a>
                             </div>
                         </form>
                     </div>

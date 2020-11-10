@@ -80,7 +80,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('product.show', ['product' => $product]);
+        return view('product.show', ['product' => $product, 'provider' => $product->provider()->first()]);
     }
 
 
@@ -92,7 +92,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('product.edit', ['product' => $product]);
+        return view('product.edit', ['product' => $product, 'provider' => $product->provider()->first()]);
     }
 
 

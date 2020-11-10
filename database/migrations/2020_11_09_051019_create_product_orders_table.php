@@ -18,6 +18,8 @@ class CreateProductOrdersTable extends Migration
 
             $table->date('date');
             $table->float('shipping_cost');
+            $table->integer('quantity');
+            $table->boolean('state');
 
             $table->bigInteger('product_id')->unsigned()->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('set null');
@@ -39,5 +41,3 @@ class CreateProductOrdersTable extends Migration
         Schema::dropIfExists('product_orders');
     }
 }
-
-    /**

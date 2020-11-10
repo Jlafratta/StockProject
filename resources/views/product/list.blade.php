@@ -16,7 +16,11 @@
             </div>
         </div>
     </div> 
-
+    @if(isset($success))
+    <div class="col-md-8">
+        <div class="alert alert-success fade show" role="alert"> Su orden de compra fue solicitada y llegara en {{ $success }} días. </div>
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-8">
             <div class="container">

@@ -15,7 +15,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        return view('sale.list', ['sales' => Sale::all()]);
     }
 
     /**
@@ -25,7 +25,6 @@ class SaleController extends Controller
      */
     public function create()
     {
-
         return view('sale.create', ['products' => Product::all()]);
     }
 
@@ -37,7 +36,42 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::find($request->product_id);
+
+        if($product->stock < $request->quantity){
+            return redirect()->back()->with('errorMsg', 'La cantidad excede al stock disponible');
+        }
+
+        $sale = new Sale();
+        $sale->date = $request->date;
+        $sale->price = $product->price;
+        $sale->cost = $product->cost;
+        $sale->quantity = $request->quantity;
+        $sale->total_cost = $sale->quantity * $sale->cost;
+        $sale->total_price = $sale->quantity * $sale->price;
+        $sale->product_id = $product->id;
+
+        return view('sale.preConfirm', ['sale' => $sale, 'product' => $product]);
+    }
+
+    public function confirm(Request $request) {
+        $product = Product::find($request->product_id);
+
+        $sale = new Sale();
+        $sale->date = $request->date;
+        $sale->price = $product->price;
+        $sale->cost = $product->cost;
+        $sale->quantity = $request->quantity;
+        $sale->total_cost = $sale->quantity * $sale->cost;
+        $sale->total_price = $sale->quantity * $sale->price;
+        $sale->product_id = $product->id;
+
+        $sale->save();
+
+        $product->stock -= $sale->quantity;     // Resta el stock al producto previamente validado
+        $product->save();
+
+        return $this->index();
     }
 
     /**

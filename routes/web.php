@@ -29,6 +29,7 @@ Route::prefix('dashboard')->name('admin.')->group(function(){
         
         Route::get('/stock', 'ProductController@choose')->name('product.choose');
     Route::resource('/sale', 'SaleController');
+        Route::post('/sale/confirm/{sale?}', 'SaleController@confirm')->name('sale.confirm');
 
     Route::get('/settings', 'SettingController@index')->name('settings');
     Route::post('/settings', 'SettingController@store')->name('settings.store');
@@ -37,6 +38,10 @@ Route::prefix('dashboard')->name('admin.')->group(function(){
     Route::get('/provider/prod/{product}', 'ProviderController@showProd')->name('provider.showProd');
     Route::get('/provider/prod/{product}/edit', 'ProviderController@editProd')->name('provider.editProd');
     Route::put('/provider/prod/{product}/update', 'ProviderController@updateProd')->name('provider.updateProd');
+
+    Route::get('/order/{product_id}', 'ProductOrderController@create')->name('order.create');
+    Route::post('/order/store', 'ProductOrderController@store')->name('order.store');
+    Route::get('/order', 'ProductOrderController@index')->name('order.index');
 
     // Route::get('/providers', 'ProviderController@index')->name('providers');
     // Route::get('/providers/create', 'ProviderController@create')->name('provider.create');
