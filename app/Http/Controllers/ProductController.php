@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Provider;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -24,7 +25,13 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        return view('product.create', ['providers' => Provider::all()]);
+    }
+
+
+    public function createProv($provider_id)
+    {
+        return view('provider.createProd', ['provider' => Provider::find($provider_id)]);
     }
 
     /**
@@ -41,10 +48,28 @@ class ProductController extends Controller
             'description' =>$request->description,
             'price' => $request->price,
             'cost' => $request->cost,
-            'stock' => $request->stock
+            'stock' => $request->stock,
+            'provider_id' => $request->provider_id
+        ]);
+        return $this->index();
+    }
+
+
+    public function storeProv(Request $request, $provider_id)
+    {
+        Product::create([
+            'code' => $request->code,
+            'name' => $request->name,
+            'description' =>$request->description,
+            'price' => $request->price,
+            'cost' => $request->cost,
+            'stock' => $request->stock,
+            'provider_id' => $provider_id
         ]);
 
-        return redirect()->route('admin.product.index', ['products' => Product::all()]);
+        return view('provider.show', 
+        ['provider' => Provider::find($provider_id), 
+        'products' => Product::where('provider_id', $provider_id)->get()]);
     }
 
     /**
@@ -58,6 +83,7 @@ class ProductController extends Controller
         return view('product.show', ['product' => $product]);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,6 +94,7 @@ class ProductController extends Controller
     {
         return view('product.edit', ['product' => $product]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -88,6 +115,7 @@ class ProductController extends Controller
 
         return $this->index();
     }
+
 
     /**
      * Remove the specified resource from storage.

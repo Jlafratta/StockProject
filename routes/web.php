@@ -24,11 +24,23 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('dashboard')->name('admin.')->group(function(){
 
     Route::resource('/product', 'ProductController');
+        Route::get('/product/new/{provider_id}', 'ProductController@createProv')->name('product.createProv');
+        Route::post('/product/new/{provider_id}/store', 'ProductController@storeProv')->name('product.storeProv');
+        
         Route::get('/stock', 'ProductController@choose')->name('product.choose');
     Route::resource('/sale', 'SaleController');
 
     Route::get('/settings', 'SettingController@index')->name('settings');
     Route::post('/settings', 'SettingController@store')->name('settings.store');
+
+    Route::resource('/provider', 'ProviderController');
+    Route::get('/provider/prod/{product}', 'ProviderController@showProd')->name('provider.showProd');
+    Route::get('/provider/prod/{product}/edit', 'ProviderController@editProd')->name('provider.editProd');
+    Route::put('/provider/prod/{product}/update', 'ProviderController@updateProd')->name('provider.updateProd');
+
+    // Route::get('/providers', 'ProviderController@index')->name('providers');
+    // Route::get('/providers/create', 'ProviderController@create')->name('provider.create');
+    // Route::post('/providers/store', 'ProviderController@store')->name('provider.store');
 
 });
 

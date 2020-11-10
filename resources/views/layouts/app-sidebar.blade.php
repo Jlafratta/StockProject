@@ -36,34 +36,33 @@
                 <li class="app-sidebar__heading">Mercado</li>
                 <li>
                     <a href="{{route('admin.sale.create')}}">
-                        <i class="metismenu-icon pe-7s-graph2">
+                        <i class="metismenu-icon pe-7s-cash">
                         </i>Nueva venta
                     </a>
                 </li>
                 
                 <li class="app-sidebar__heading">Inventario</li>
-                <li class="mm-active">
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-shopbag"></i>
-                        Productos
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                <li>
+                    <a href="{{ route('admin.product.index') }}">
+                        <i class="metismenu-icon pe-7s-shopbag">
+                        </i>Productos
                     </a>
-                    <ul class="mm-show">
-                        <li>
-                            <a href="{{ route('admin.product.create') }}">
-                                <i class="metismenu-icon">
-                                </i>Nuevo
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.product.index') }}">
-                                <i class="metismenu-icon">
-                                </i>Stock
-                            </a>
-                        </li>
-                    </ul>
                 </li>
-            
+
+                <li class="app-sidebar__heading">Proveedores</li>
+                <li>
+                    <a href="{{ route('admin.provider.index') }}">
+                        <i class="metismenu-icon pe-7s-display2">
+                        </i>Listado
+                    </a>
+                </li>
+                {{-- <li>
+                    <a href="{{ route('admin.provider.create') }}">
+                        <i class="metismenu-icon pe-7s-plus">
+                        </i>Nuevo
+                    </a>
+                </li> --}}
+
                 <li class="app-sidebar__heading">Contable</li>
                 <li>
                     <a href="#">
@@ -72,24 +71,10 @@
                     </a>
                 </li>
 
-                <li class="app-sidebar__heading">Proveedores</li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-graph2">
-                        </i>Listado
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-graph2">
-                        </i>Nuevo
-                    </a>
-                </li>
-
                 <li class="app-sidebar__heading">Herramientas</li>
                 <li>
                     <a href="{{ route('admin.product.choose') }}">
-                        <i class="metismenu-icon pe-7s-graph2">
+                        <i class="metismenu-icon pe-7s-cart">
                         </i>Stock
                     </a>
                 </li>

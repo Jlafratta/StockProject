@@ -22,7 +22,7 @@
                 <div class="main-card card">
                     <div class="card-body">
                         <h5 class="card-title">Informacion</h5><hr class="mb-4">
-                        <form action="{{ route('admin.product.store') }}" method="POST">
+                        <form action="{{ route('admin.product.storeProv', $provider->id) }}" method="POST">
                             @csrf
                             <div class="position-relative form-group container">
                                 <div class="row">
@@ -36,14 +36,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-8 form-group">
-                                        <label for="provider">Proveedor</label>
-                                        <select name="provider_id" id="provider" class="form-control">
-                                            @foreach ($providers as $provider)
-                                        <option value="{{ $provider->id }}">{{ $provider->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
                                     <div class="col-md-4 form-group">
                                         <label for="code">Demanda diaria</label>
                                         <input type="number" name="daily_demand" max="999999" id="code" class="form-control" required>
